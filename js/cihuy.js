@@ -6,6 +6,7 @@ export function customGet(target_url, responseFunction) {
   let requestOptions = {
     method: "GET",
     redirect: "follow",
+    mode: "no-cors",
     Headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
