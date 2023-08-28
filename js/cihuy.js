@@ -10,7 +10,7 @@ export function customGet(target_url, responseFunction) {
   let requestOptions = {
     method: "GET",
     redirect: "follow",
-    Headers: myHeaders,
+    headers: myHeaders,
   };
 
   fetch(target_url, requestOptions)
