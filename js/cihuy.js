@@ -22,5 +22,8 @@ export function customGet(target_url, responseFunction) {
     .then((result) => responseFunction(JSON.parse(result)))
     .catch((error) => console.error("Error:", error));
 }
+export function handleResponse(responseData) {
+  console.log(responseData);
+}
 
 customGet("https://simbe-dev.ulbi.ac.id/api/v1/admins/", token, handleResponse);
