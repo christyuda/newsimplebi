@@ -25,5 +25,5 @@ export function customGet(target_url, responseFunction) {
 export function handleResponse(responseData) {
   console.log(responseData);
 }
-
-customGet("https://simbe-dev.ulbi.ac.id/api/v1/admins/", token, handleResponse);
+let target_url = "https://simbe-dev.ulbi.ac.id/api/v1/admins/";
+customGet(target_url, token, handleResponse);
