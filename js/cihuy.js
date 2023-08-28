@@ -1,12 +1,14 @@
 import { CihuyGetCookie } from "https://c-craftjs.github.io/cookies/cookies.js";
 // Definisikan token Anda
-let token = " "; // Ganti dengan nilai token yang sesuai
+let token = CihuyGetCookie("login"); // Ganti dengan nilai token yang sesuai
 
 // Definisikan myHeaders dengan header LOGIN yang sesuai
-let myHeaders = new Headers();
-myHeaders.append("LOGIN", token);
+// let myHeaders = new Headers();
+// myHeaders.append("LOGIN", token);
 
 export function customGet(target_url, token, responseFunction) {
+  let myHeaders = new Headers();
+  myHeaders.append("LOGIN", token);
   let requestOptions = {
     method: "GET",
     redirect: "follow",
