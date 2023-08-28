@@ -1,4 +1,4 @@
-import { CihuyGetCookie } from "https://c-craftjs.github.io/link/link.js";
+import { CihuyGetCookie } from "https://c-craftjs.github.io/cookies/cookies.js";
 
 let token = CihuyGetCookie("login");
 console.log(token);
