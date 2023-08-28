@@ -1,15 +1,14 @@
 import { CihuyGetCookie } from "https://c-craftjs.github.io/link/link.js";
 
 let token = CihuyGetCookie("LOGIN");
-
+const myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+myHeaders.append("LOGIN", token);
 export function customGet(target_url, responseFunction) {
   let requestOptions = {
     method: "GET",
     redirect: "follow",
-    Headers: {
-      "Content-Type": "application/json",
-      LOGIN: token,
-    },
+    Headers: myHeaders,
   };
 
   fetch(target_url, requestOptions)
