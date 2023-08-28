@@ -1,9 +1,11 @@
 import { CihuyGetCookie } from "https://c-craftjs.github.io/link/link.js";
 
 let token = CihuyGetCookie("login");
+console.log(token);
+
 const myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
-myHeaders.append("LOGIN", token);
+myHeaders.append("Authorization", `Bearer ${token}`);
 export function customGet(target_url, responseFunction) {
   let requestOptions = {
     method: "GET",
