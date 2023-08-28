@@ -1,6 +1,6 @@
 import { CihuyGetCookie } from "https://c-craftjs.github.io/link/link.js";
 
-let token = CihuyGetCookie("LOGIN");
+let token = CihuyGetCookie("login");
 const myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 myHeaders.append("LOGIN", token);
