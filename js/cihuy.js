@@ -1,6 +1,6 @@
 import { CihuyGetCookie } from "https://c-craftjs.github.io/link/link.js";
 
-let token = CihuyGetCookie("Login");
+let token = CihuyGetCookie("LOGIN");
 
 export function customGet(target_url, responseFunction) {
   let requestOptions = {
@@ -8,7 +8,7 @@ export function customGet(target_url, responseFunction) {
     redirect: "follow",
     Headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      LOGIN: ` ${token}`,
     },
   };
 
