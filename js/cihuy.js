@@ -8,7 +8,7 @@ export function customGet(target_url, responseFunction) {
     redirect: "follow",
     Headers: {
       "Content-Type": "application/json",
-      LOGIN: ` ${token}`,
+      LOGIN: token,
     },
   };
 
