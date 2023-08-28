@@ -1,25 +1,25 @@
-function apiGetRequest(url, callback) {
-  const getapi = new XMLHttpRequest();
-  getapi.open("GET", url, true);
-  getapi.onreadystatechange = () => {
-    if (getapi.readyState === 4) {
-      if (getapi.status === 200) {
-        const response = JSON.parse(getapi.responseText);
-        callback(null, response);
-      } else {
-        callback(new Error("Request failed"), null);
-      }
-    }
+import { CihuyGetCookie } from "https://c-craftjs.github.io/link/link.js";
+
+let token = CihuyGetCookie("Login");
+
+export function customGet(target_url, responseFunction) {
+  let requestOptions = {
+    method: "GET",
+    redirect: "follow",
+    Headers: {
+      "Content-Type": "application/json",
+    },
   };
-  getapi.send();
+
+  fetch(target_url, requestOptions)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then((result) => responseFunction(JSON.parse(result)))
+    .catch((error) => console.error("Error:", error));
 }
 
-const apiUrl = "https://simbe-dev.ulbi.ac.id/api/v1/admins/"; // Ganti dengan URL API yang sesuai
-apiGetRequest(apiUrl, (error, response) => {
-  if (error) {
-    console.error("Error:", error);
-  } else {
-    console.log("Response:", response);
-    // Lakukan manipulasi data atau tindakan lain dengan response dari API
-  }
-});
+customGet("https://simbe-dev.ulbi.ac.id/api/v1/admins/", token, handleResponse);
